@@ -36,7 +36,7 @@ defmodule Gogetssl.MixProject do
     [
       files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["Przemyslaw Pajak"],
-      licenses: ["Apache 2.0"],
+      licenses: ["Apache-2.0"],
       links: %{"GitHub" => "https://github.com/fearless-spider/gogetssl"}
     ]
   end
