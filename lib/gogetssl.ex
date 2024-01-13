@@ -10,6 +10,8 @@ defmodule Gogetssl do
     @client_version
   end
 
+  alias Gogetssl.{AuthenticationError}
+
   @missing_username_password_error_message """
     The ggssl_auth_username and the ggssl_auth_password settings is required to use gogetssl. Please include your
     gogetss username and password in your application config file like so:
