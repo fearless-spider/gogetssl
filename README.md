@@ -1,6 +1,6 @@
-# Gogetssl
+# GOGETSSL API
 
-**TODO: Add description**
+Documentation: https://documenter.getpostman.com/view/5593375/T1LHFp7m
 
 ## Installation
 
@@ -18,4 +18,3 @@ end
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
 be found at <https://hexdocs.pm/gogetssl>.
-
