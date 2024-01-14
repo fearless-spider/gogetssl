@@ -7,9 +7,7 @@ defmodule Gogetssl.AuthTest do
       pass: "TEST_PASSWORD"
     )
 
-    assert url =~ "username=TEST_USERNAME"
-    assert url =~ "password=TEST_PASSWORD"
-    assert url =~ "response_type=code"
+    assert url =~ "user=TEST_USERNAME&pass=TEST_PASSWORD"
   end
 
   test "Gogetssl.Auth.authorize_url/1 should raise AuthenticationError when username and/or password is not set" do
