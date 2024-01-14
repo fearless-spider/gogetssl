@@ -1,4 +1,4 @@
-defmodule Stripe.Utils do
+defmodule Gogetssl.Utils do
   @moduledoc """
   Utility functions for gogetssl
   """
