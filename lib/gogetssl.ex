@@ -55,11 +55,16 @@ defmodule Gogetssl do
     [{"Content-Type", "application/x-www-form-urlencoded"}]
   end
 
-  def request(action, endpoint, data) when action in [:get, :post, :delete] do
+  def request(action, endpoint, data) when action in [:get, :delete] do
     HTTPoison.request(action, request_url(endpoint, data), "", create_headers())
     |> handle_response
   end
 
+  def request(action, endpoint, data) when action in [:post] do
+    HTTPoison.request(action, request_url(endpoint), Gogetssl.Utils.encode_data(data), create_headers())
+    |> handle_response
+  end
+  
   defp handle_response({:ok, %{body: body, status_code: 200}}) do
     {:ok, process_response_body(body)}
   end

@@ -9,7 +9,7 @@ defmodule Gogetssl.AuthTest do
 
   end
 
-  test "Gogetssl.Auth.auth/1 should raise AuthenticationError when username and/or password is not set" do
-    assert_raise Gogetssl.AuthenticationError, fn -> Gogetssl.Auth.auth() end
-  end 
+  test "Gogetssl.Auth.auth/1 should return token" do 
+    assert {:ok, _} = Gogetssl.Auth.auth()
+  end
 end
