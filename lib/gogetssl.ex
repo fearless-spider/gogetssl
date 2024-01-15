@@ -19,13 +19,13 @@ defmodule Gogetssl do
     config :gogetssl, ggssl_auth_username: {:system, "GGSSL_AUTH_USERNAME"}, ggssl_auth_password: {:system, "GGSSL_AUTH_PASSWORD"}
   """
 
-  defp get_username do
+  def get_username do
     System.get_env("GGSSL_AUTH_USERNAME") ||
       Application.get_env(:gogetssl, :ggssl_auth_username) ||
       raise AuthenticationError, message: @missing_username_password_error_message
   end
 
-  defp get_password do
+  def get_password do
     System.get_env("GGSSL_AUTH_PASSWORD") ||
       Application.get_env(:gogetssl, :ggssl_auth_password) ||
       raise AuthenticationError, message: @missing_username_password_error_message
@@ -55,7 +55,7 @@ defmodule Gogetssl do
     [{"Content-Type", "application/x-www-form-urlencoded"}]
   end
 
-  def request(action, endpoint, data, opts) when action in [:get, :post, :delete] do
+  def request(action, endpoint, data) when action in [:get, :post, :delete] do
     HTTPoison.request(action, request_url(endpoint, data), "", create_headers())
     |> handle_response
   end
