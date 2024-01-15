@@ -5,8 +5,8 @@ defmodule Gogetssl.API do
         @doc """
         Create a(n) #{__MODULE__ |> to_string |> String.split(".") |> List.last}
         """
-        def create(data, opts \\ []) do
-          Gogetssl.request(:post, endpoint(), data, opts)
+        def create(data) do
+          Gogetssl.request(:post, endpoint(), data)
         end
       end
 
@@ -14,9 +14,9 @@ defmodule Gogetssl.API do
         @doc """
         Retrive a(n) #{__MODULE__ |> to_string |> String.split(".") |> List.last} by its ID
         """
-        def retrieve(id, opts \\ []) when is_bitstring(id) do
+        def retrieve(id) when is_bitstring(id) do
           resource_url = Path.join(endpoint(), id)
-          Gogetssl.request(:get, resource_url, [], opts)
+          Gogetssl.request(:get, resource_url, [])
         end
       end
 
@@ -24,9 +24,9 @@ defmodule Gogetssl.API do
         @doc """
         Update a(n) #{__MODULE__ |> to_string |> String.split(".") |> List.last}
         """
-        def update(id, data, opts \\ []) when is_bitstring(id) do
+        def update(id, data) when is_bitstring(id) do
           resource_url = Path.join(endpoint(), id)
-          Gogetssl.request(:post, resource_url, data, opts)
+          Gogetssl.request(:post, resource_url, data)
         end
       end
 
@@ -34,8 +34,8 @@ defmodule Gogetssl.API do
         @doc """
         List all #{__MODULE__ |> to_string |> String.split(".") |> List.last}s
         """
-        def list(pagination_opts \\ [], opts \\ []) when is_list(pagination_opts) do
-          Gogetssl.request(:get, endpoint(), pagination_opts, opts)
+        def list() do
+          Gogetssl.request(:get, endpoint(), [])
         end
       end
 
@@ -43,9 +43,9 @@ defmodule Gogetssl.API do
         @doc """
         Delete a(n) #{__MODULE__ |> to_string |> String.split(".") |> List.last}
         """
-        def delete(id, data \\ [], opts \\ []) when is_bitstring(id) do
+        def delete(id, data \\ []) when is_bitstring(id) do
           resource_url = Path.join(endpoint(), id)
-          Gogetssl.request(:delete, resource_url, data, opts)
+          Gogetssl.request(:delete, resource_url, data)
         end
       end
     end
