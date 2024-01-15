@@ -32,8 +32,8 @@ defmodule Gogetssl do
   end
 
   defp get_api_endpoint do
-    System.get_env("GOGETSSL_API_ENDPOINT") ||
-      Application.get_env(:stripe, :api_endpoint) ||
+    System.get_env("GGSSL_API_ENDPOINT") ||
+      Application.get_env(:gogetssl, :api_endpoint) ||
       @default_api_endpoint
   end
 
@@ -45,14 +45,18 @@ defmodule Gogetssl do
     Path.join(get_api_endpoint(), endpoint)
   end
 
-  defp request_url(endpoint, data, auth_key) do
+  defp request_url(endpoint, data) do
     base_url = request_url(endpoint)
     query_params = Gogetssl.Utils.encode_data(data)
-    "#{base_url}?auth_key=#{auth_key}"
+    "#{base_url}?#{query_params}"
+  end
+
+  defp create_headers() do
+    [{"Content-Type", "application/x-www-form-urlencoded"}]
   end
 
   def request(action, endpoint, data, opts) when action in [:get, :post, :delete] do
-    HTTPoison.request(action, request_url(endpoint, data), "")
+    HTTPoison.request(action, request_url(endpoint, data), "", create_headers())
     |> handle_response
   end
 

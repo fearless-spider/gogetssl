@@ -3,19 +3,15 @@ defmodule Gogetssl.Auth do
   Functions related to Auth
   """
 
-  @oauth_url "{{V1_URL_PREFIX}}/auth"
+  def endpoint do
+    "auth"
+  end
 
-  @spec authorize_url(Keyword.t) :: binary
-  def authorize_url(opts \\ []) do 
+  @spec auth(Keyword.t) :: binary
+  def auth(opts \\ []) do
     user = Keyword.get(opts, :user) || get_username()
     pass = Keyword.get(opts, :pass) || get_password()
-    query_params = 
-      opts 
-      |> Keyword.put_new(:user, user)
-      |> Keyword.put_new(:pass, pass)
-      |> Gogetssl.Utils.encode_data()
-
-    @oauth_url <> "?" <> query_params
+    Gogetssl.request(:post, "#{endpoint()}", [user: user, pass: pass], opts)
   end
 
   @missing_username_password_error_message """
