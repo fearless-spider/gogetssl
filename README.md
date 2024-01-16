@@ -2,7 +2,11 @@
 
 Documentation: https://documenter.getpostman.com/view/5593375/T1LHFp7m
 
-## Installation
+## 🚀 Features
+
+* Log in and fetch token
+ 
+## 📖 Installation
 
 1. Add `gogetssl` to your list of dependencies in `mix.exs`:
 
@@ -21,4 +25,12 @@ config :gogetssl, ggssl_auth_username: {:system, "GGSSL_AUTH_USERNAME"}, ggssl_a
 
 ```
 
-## Basic Usage
+## 📖 Basic Usage
+
+## ⭐️ Support
+
+Give a ⭐️ if this project helped you!
+
+## License
+
+The [Apache License 2.0](LICENSE)
