@@ -31,6 +31,6 @@ config :gogetssl, ggssl_auth_username: {:system, "GGSSL_AUTH_USERNAME"}, ggssl_a
 
 Give a ⭐️ if this project helped you!
 
-## License
+## 📝 License
 
 The [Apache License 2.0](LICENSE)
