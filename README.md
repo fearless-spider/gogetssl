@@ -2,10 +2,12 @@
 
 Documentation: https://documenter.getpostman.com/view/5593375/T1LHFp7m
 
+Order and manage SSL certificates, Seals & Scanners using our API.
+
 ## 🚀 Features
 
-* Log in and fetch token
- 
+- Log in and fetch token
+
 ## 📖 Installation
 
 1. Add `gogetssl` to your list of dependencies in `mix.exs`:
